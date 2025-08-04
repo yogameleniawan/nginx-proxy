@@ -12,6 +12,9 @@ services:
       - nginx_certs:/etc/nginx/certs
       - nginx_vhost:/etc/nginx/vhost.d
       - nginx_html:/usr/share/nginx/html
+      - ./nginx-proxy.conf:/etc/nginx/conf.d/nginx-proxy.conf:ro
+    environment:
+      - TRUST_DOWNSTREAM_PROXY=true
     networks:
       - proxy-tier
 
